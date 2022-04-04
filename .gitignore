@@ -1,0 +1,14 @@
+*.terraform
+*.pem
+*.tfvars
+*.tfplan
+*.tfstate
+*.tfstate.backup
+*.lock.info
+*.lock*
+*.config.tfvars
+.terraform
+.DS_Store
+*.csv
+AWS-Files/*
+commands.txt
