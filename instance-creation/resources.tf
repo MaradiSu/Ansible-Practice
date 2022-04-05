@@ -73,10 +73,12 @@ resource "aws_security_group" "ansible-demo-server" {
 
 # INSTANCE
 resource "aws_instance" "ansible-demo-server" {
-  #count 
-  ami = data.aws_ami.aws-linux.id
+  count = length(var.instance_names)
+
+  ami           = data.aws_ami.aws-linux.id
   instance_type = "t2.micro"
-  subnet_id = aws_subnet.subnet1.id
+  subnet_id     = aws_subnet.subnet1.id
+
   vpc_security_group_ids = [aws_security_group.ansible-demo-server.id]
   key_name               = var.ssh_key_name
 
@@ -87,6 +89,6 @@ resource "aws_instance" "ansible-demo-server" {
     private_key = file(var.private_key_path)
   }
   tags = {
-    "Name" = "Demo-Server-for-Ansible"
+    "Name" = var.instance_names[count.index]
   }
   }

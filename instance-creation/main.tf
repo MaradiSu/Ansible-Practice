@@ -20,6 +20,9 @@ variable "vpc_cidr" {
 variable "subnet1_cidr" {
   default = "172.16.0.0/24"
 }
+variable "instance_names" {
+  default = ["Ansible-Control-Node", "Manage-Node1", "Manage-Node2", "Manage-Node3", "Manage-Node4"]
+}
 
 
 
