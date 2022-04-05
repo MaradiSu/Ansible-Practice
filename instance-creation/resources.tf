@@ -73,7 +73,7 @@ resource "aws_security_group" "ansible-demo-server" {
 
 # INSTANCE
 resource "aws_instance" "ansible-demo-server" {
-  #count = 2
+  #count 
   ami = data.aws_ami.aws-linux.id
   instance_type = "t2.micro"
   subnet_id = aws_subnet.subnet1.id
