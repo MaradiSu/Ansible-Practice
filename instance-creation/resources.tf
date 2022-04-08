@@ -73,7 +73,7 @@ resource "aws_security_group" "ansible-demo-server" {
 
 # INSTANCE
 resource "aws_instance" "ansible-demo-server" {
-  count = length(var.instance_names)
+  count = length(var.instance_names) #5
 
   #ami           = data.aws_ami.aws-linux.id
   ami           = "ami-06a0b4e3b7eb7a300"
@@ -90,6 +90,6 @@ resource "aws_instance" "ansible-demo-server" {
     private_key = file(var.private_key_path)
   }
   tags = {
-    "Name" = var.instance_names[count.index]
+    "Name" = var.instance_names[count.index] #0 1 2 3 4
   }
   }
