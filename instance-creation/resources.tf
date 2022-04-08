@@ -75,7 +75,8 @@ resource "aws_security_group" "ansible-demo-server" {
 resource "aws_instance" "ansible-demo-server" {
   count = length(var.instance_names)
 
-  ami           = data.aws_ami.aws-linux.id
+  #ami           = data.aws_ami.aws-linux.id
+  ami           = "ami-06a0b4e3b7eb7a300"
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.subnet1.id
 
